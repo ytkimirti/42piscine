@@ -1,5 +1,0 @@
-Credentials cache: API:A047191F-9EFF-4B60-B532-9D47E46D6E49
-        Principal: ykimirti@42ISTANBUL.COM.TR
-
-  Issued                Expires               Principal
-Aug 31 16:51:29 2021  Sep  1 02:51:00 2021  krbtgt/42ISTANBUL.COM.TR@42ISTANBUL.COM.TR
