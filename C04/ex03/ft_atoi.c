@@ -44,7 +44,7 @@ int	ft_atoi(char *str)
 
 int	main(void)
 {
-	char	*str = "--ia==123123890";
+	char	*str = "-++-123123890";
 
 	printf("%i", ft_atoi(str));
 }
