@@ -16,6 +16,8 @@ char	*ft_strdup(char *src)
 	int		i;
 
 	p = (char *)malloc((len(src) + 1) * sizeof(char));
+	if (p == 0)
+		return (0);
 	i = 0;
 	while (src[i] != 0)
 	{
