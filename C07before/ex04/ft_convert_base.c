@@ -6,6 +6,8 @@ int		len(char *str);
 
 _Bool	is_valid(char *charset, int len);
 
+int		find_num(char str, char *base);
+
 char	*rec_func(int nbr, char *charset, int len, char *str)
 {
 	unsigned int	val;
@@ -41,4 +43,14 @@ char	*ft_convert_base(char *nbr, char *base_from, char *charset)
 	rec_func(val, charset, len(charset), str);
 	str[34] = 0;
 	return (str);
+}
+
+int	new_len(char *str, char *charset)
+{
+	int	i;
+
+	i = 0;
+	while (find_num(str[i], charset) != -1)
+		i++;
+	return (i);
 }

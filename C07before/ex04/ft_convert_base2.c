@@ -1,3 +1,5 @@
+int	new_len(char *str, char *charset);
+
 int	find_num(char str, char *base)
 {
 	int	i;
@@ -82,9 +84,11 @@ int	ft_atoi_base(char *str, char *charset)
 	if (!is_valid(charset, len_c))
 		return (0);
 	str = find_flag(str, &f);
-	i = len(str) - 1;
+	i = new_len(str, charset) - 1;
 	base = 1;
 	sum = 0;
+	if (find_num(str[0], charset) == -1)
+		return (0);
 	while (i >= 0)
 	{
 		if (find_num(str[i], charset) == -1)
