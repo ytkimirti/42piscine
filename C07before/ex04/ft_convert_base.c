@@ -50,7 +50,7 @@ int	new_len(char *str, char *charset)
 	int	i;
 
 	i = 0;
-	while (find_num(str[i], charset) != -1)
+	while (str[i] != 0 && find_num(str[i], charset) != -1)
 		i++;
 	return (i);
 }

@@ -48,22 +48,26 @@ char	*find_flag(char *str, int *flag)
 	return (str);
 }
 
-_Bool	is_valid(char *charset, int len)
+_Bool	is_valid(char *cs, int len)
 {
 	int	stat;
 	int	i;
 
 	stat = 0;
-	if (charset[0] == 0 || charset[1] == 0)
+	if (cs[0] == 0 || cs[1] == 0)
 		return (0);
 	while (stat < len)
 	{
-		if (charset[stat] == '+' || charset[stat] == '-')
+		if (cs[stat] == '+' || cs[stat] == '-')
+			return (0);
+		if (cs[stat] == '\t' || cs[stat] == '\n' || cs[stat] == ' ')
+			return (0);
+		else if (cs[stat] == '\v' || cs[stat] == '\f' || cs[stat] == '\r')
 			return (0);
 		i = 0;
 		while (i < len)
 		{
-			if (i != stat && charset[i] == charset[stat])
+			if (i != stat && cs[i] == cs[stat])
 				return (0);
 			i++;
 		}
