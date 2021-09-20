@@ -3,9 +3,6 @@ OBJS = $(FILES:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-TEST = $(wildcard */*.c)
-
-
 # $@ the target
 # $< first prerqusit
 # $^ all of prerequsits
@@ -16,9 +13,6 @@ TEST = $(wildcard */*.c)
 
 all: libft.a
 
-test:
-	echo $(TEST)
-
 %.o: %.c
 	gcc $(FLAGS) -c -o $@ $< -Iincludes
 
@@ -26,10 +20,9 @@ libft.a: ${OBJS}
 	ar rcs libft.a $^
 
 clean:
-	rm -f */*.o
+	rm -f ${OBJS}
 
-fclean:
-	rm -f */*.o
+fclean: clean
 	rm -f libft.a
 
 re: fclean all
