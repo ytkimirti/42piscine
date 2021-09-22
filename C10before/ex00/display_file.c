@@ -34,6 +34,9 @@ int	main(int argc, char *argv[])
 		else if (nbytes > 0)
 			write(1, &c, sizeof(char));
 		else
+		{
+			close(file);
 			return (0);
+		}
 	}
 }
