@@ -1,12 +1,5 @@
-#include <stdio.h>
 #include <unistd.h>
-
 #include <fcntl.h>
-#include <stdlib.h>
-
-#include <sys/types.h>
-#include <sys/stat.h>
-
 
 void	ft_putstr(char *str)
 {
@@ -20,16 +13,27 @@ int	put_err(char *str)
 	return (1);
 }
 
-// Deneme comment2
 int	main(int argc, char *argv[])
 {
+	int		file;
+	int		nbytes;
+	char	c;
 
-
-	/*if (argc <= 1)*/
-		/*return (put_err("File name missing.\n"));*/
-	/*if (argc > 2)*/
-		/*return (put_err("Too many arguments.\n"));*/
-	/*if (fptr == 0)*/
-		/*return (put_err("Cannot read file.\n"));*/
-
+	if (argc <= 1)
+		return (put_err("File name missing.\n"));
+	if (argc > 2)
+		return (put_err("Too many arguments.\n"));
+	file = open(argv[1], O_RDONLY);
+	if (file <= 0)
+		return (put_err("Cannot read file.\n"));
+	while (1)
+	{
+		nbytes = read(file, &c, sizeof(char));
+		if (nbytes < 0)
+			return (put_err("Cannot read file.\n"));
+		else if (nbytes > 0)
+			write(1, &c, sizeof(char));
+		else
+			return (0);
+	}
 }
