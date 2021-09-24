@@ -1,9 +1,9 @@
 
 
-SRCS = tail.c
+SRCS = tail.c utils.c ft_atoi.c
 OUT = ft_tail
 
-RUNPARAMS = 
+RUNPARAMS = -c 5 a x x a  
 
 
 OBJS = $(SRCS:.c=.o)
@@ -14,14 +14,12 @@ FLAGS = -Wall -Wextra -Werror
 all: ${OUT}
 
 run: all
-	@./${OUT} ${RUNPARAMS}
-	@echo ''
-	@echo ''
-	@cat ${RUNPARAMS}
+	-./${OUT} ${RUNPARAMS} ||:
+	-tail ${RUNPARAMS} ||:
 
 diff: all
-	-@./${OUT} ${RUNPARAMS} 2> .myout
-	-@cat ${RUNPARAMS} 2> .origout
+	@./${OUT} ${RUNPARAMS} 2> .myout ||:
+	@cat ${RUNPARAMS} 2> .origout ||:
 	-@diff .myout .origout
 
 %.o: %.c

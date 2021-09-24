@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int	g_errstate;
-
 void	ft_putstr(char *str)
 {
 	while (*str)
@@ -34,7 +32,6 @@ int	main(int argc, char *argv[])
 {
 	int		i;
 
-	g_errstate = 0;
 	if (argc == 1)
 	{
 		read_write("-");
